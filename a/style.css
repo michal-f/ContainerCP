@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#logocontainer{
+    /*position: fixed;*/
+    /*top: 10px;*/
+    /*left: 50;*/
+    /*max-width: 1000px;*/
+     /*height: auto;*/
+    text-align:center;
+}
+#logo {
+max-width: 100%;
+	height: auto;
+	width: auto\9;
+    align-content: center;
+}
+.ontop {
+    color:#fff;
+    font-size:1.3em;
+    font-family: FontAwesome;
+    background-color: rgba(90,90,190,0.4);
+    /*max-width:400px;*/
+     height: auto;
+    padding-top:50px;
+    padding-bottom:50px;
+}

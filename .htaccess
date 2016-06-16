@@ -1,0 +1,61 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+php_value max_execution_time 200
+
+#----------------------------------------------------------
+# pointing santorini-jastrzebia.pl to pages/santorini
+#ReWriteCond %{HTTP_HOST} santorini-jastrzebia.pl
+#ReWriteCond %{REQUEST_URI} !pages/wordpress_santorini/wordpress/
+#ReWriteRule ^(.*)$ pages/wordpress_santorini/wordpress/$1 [L]
+
+ReWriteCond %{HTTP_HOST} santorini-jastrzebia.pl/2/
+ReWriteCond %{REQUEST_URI} !pages/santorini2/wordpress/
+ReWriteRule ^(.*)$ pages/santorini2/wordpress/$1 [L]
+
+
+ReWriteCond %{HTTP_HOST} santorini-jastrzebia.pl
+ReWriteCond %{REQUEST_URI} !pages/wordpress_santorini/wordpress/
+ReWriteRule ^(.*)$ pages/wordpress_santorini/wordpress/$1 [L]
+
+## jastrzebia.ovh
+# pointing jastrzebia.ovh to 00
+ReWriteCond %{HTTP_HOST} jastrzebia.ovh
+ReWriteCond %{REQUEST_URI} !pages/luty16/00/
+ReWriteRule ^(.*)$ pages/luty16/00/$1 [L]
+
+
+ReWriteCond %{HTTP_HOST} containercamppark.pl
+ReWriteCond %{REQUEST_URI} !pages/wordpress_ccp/wordpress/
+ReWriteRule ^(.*)$ pages/wordpress_ccp/wordpress/$1 [L]
+# END Domain to folder mapping
+# ---------------------------------------
+
+# ---------------------------------------
+# BEGIN WordPress
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+## jastrzebia.ovh
+# pointing jastrzebia.ovh to 00
+# ReWriteCond %{HTTP_HOST} jastrzebia.ovh
+# ReWriteCond %{REQUEST_URI} !pages/luty16/00/
+# ReWriteRule ^(.*)$ pages/luty16/00/$1 [L]
+
+# END WordPress
+# ---------------------------------------
+
+# ---------------------------------------
+# BEGIN htaccess pretection
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# END htaccess pretection
+# ---------------------------------------
+
+</IfModule>
